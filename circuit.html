@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CacheClear教 ロゴ｜電子回路版（アーカイブ）</title>
+<style>
+  :root{ --navy:#001a4d; --navy-deep:#000d29; --cyan:#00d9ff; --blue2:#0066cc; --orange:#ff6b35; --text:#eaf0ff; --text-dim:#9fb0d9; }
+  *{box-sizing:border-box;}
+  body{ margin:0; font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif; background:radial-gradient(ellipse at top, var(--navy) 0%, var(--navy-deep) 70%); color:var(--text); }
+  header{ text-align:center; padding:56px 24px 24px; }
+  .eyebrow{ color:var(--cyan); letter-spacing:0.3em; font-size:12px; text-transform:uppercase; }
+  h1{ font-size:clamp(24px,4.5vw,36px); margin:12px 0 8px; }
+  .banner{ max-width:640px; margin:0 auto 32px; background:rgba(255,107,53,0.08); border:1px solid rgba(255,107,53,0.35); border-radius:10px; padding:14px 18px; font-size:13px; color:var(--text-dim); text-align:center; }
+  .banner b{ color:var(--orange); }
+  nav.links{ display:flex; justify-content:center; gap:20px; flex-wrap:wrap; padding:0 24px 40px; font-size:13px; }
+  nav.links a{ color:var(--text-dim); text-decoration:none; border:1px solid rgba(255,255,255,0.15); padding:6px 14px; border-radius:999px; }
+  nav.links a:hover{ color:var(--cyan); border-color:var(--cyan); }
+  .logo-stage{ display:flex; justify-content:center; padding:20px 24px 48px; }
+  .logo-stage svg{ width:min(260px,55vw); height:auto; filter:drop-shadow(0 0 30px rgba(0,217,255,0.2)); }
+  section{ max-width:840px; margin:0 auto; padding:24px 24px 40px; }
+  h2{ font-size:20px; border-left:4px solid var(--cyan); padding-left:12px; margin-bottom:16px; }
+  table{ width:100%; border-collapse:collapse; font-size:13px; }
+  th,td{ text-align:left; padding:10px; border-bottom:1px solid rgba(255,255,255,0.12); }
+  th{ color:var(--cyan); font-weight:600; }
+  footer{ text-align:center; padding:48px 24px 64px; color:var(--text-dim); font-size:12px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">Archive — 参考資料</div>
+  <h1>電子回路版ロゴ（初期案）</h1>
+</header>
+
+<div class="banner">
+  この版は<b>参考アーカイブ</b>です。最終確定版は<b>トランジスタ版（オレンジ #ff6b35）</b>となりました。<a href="index.html" style="color:#ff6b35">→ 確定版ロゴはこちら</a>
+</div>
+
+<nav class="links">
+  <a href="index.html">確定版ロゴ</a>
+  <a href="official.html">公式ページ</a>
+  <a href="logo-complete.html">ロゴ全体設計</a>
+  <a href="concepts.html">コンセプト案</a>
+  <a href="graphics.html">グラフィックサンプル</a>
+</nav>
+
+<div class="logo-stage">
+  <svg viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+    <!-- 左右の柱：電源＆信号パス -->
+    <line x1="50" y1="30" x2="50" y2="230" stroke="#00d9ff" stroke-width="3.5" stroke-linecap="round"/>
+    <line x1="150" y1="30" x2="150" y2="230" stroke="#00d9ff" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- 上横棒（笠木）：VCC電源配線 -->
+    <line x1="30" y1="30" x2="170" y2="30" stroke="#00d9ff" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- 中央横棒（貫）：リセット信号＋共通ノード -->
+    <line x1="50" y1="110" x2="150" y2="110" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- 下横棒（縁取）：グラウンド（GND） -->
+    <line x1="40" y1="230" x2="160" y2="230" stroke="#00d9ff" stroke-width="3.5" stroke-linecap="round"/>
+  </svg>
+</div>
+
+<section>
+  <h2>構成要素</h2>
+  <table>
+    <tr><th>要素</th><th>電子回路的役割</th><th>色</th><th>象徴性</th></tr>
+    <tr><td>左右の柱</td><td>電源＆信号パス</td><td>シアン #00d9ff</td><td>参拝の流れ＝電流の流れ</td></tr>
+    <tr><td>上横棒（笠木）</td><td>VCC電源配線</td><td>シアン #00d9ff</td><td>神聖な参道の始まり</td></tr>
+    <tr><td>中央横棒（貫）</td><td>リセット信号＋共通ノード</td><td>オレンジ #ff6b35</td><td>心身を清める＝システムをリセット</td></tr>
+    <tr><td>下横棒（縁取）</td><td>グラウンド（GND）</td><td>シアン #00d9ff</td><td>大地＝電気基準</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>開発メモ</h2>
+  <p style="color:var(--text-dim); font-size:14px;">
+    最初は「ビジュアル優先」で回路パターンに鳥居を組み込んだ設計。フィードバック「電子回路として成立させろ」を受け、
+    VCC → 鳥居 → GND まで全ノードが接続する完全回路に再設計された。この版はその過程のアーカイブであり、
+    最終的には3本の柱が下へ開放する「トランジスタ版」が確定版として採用された。
+  </p>
+</section>
+
+<footer>CacheClear教 &copy; 2026 &mdash; Archive Page</footer>
+</body>
+</html>

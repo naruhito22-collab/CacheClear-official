@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CacheClear教 ロゴ - トランジスタ版</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0a1f4d 0%, #001a4d 100%);
+            color: #fff;
+            line-height: 1.6;
+        }
+        .container { max-width: 1600px; margin: 0 auto; padding: 60px 40px; }
+
+        h1 { text-align: center; margin-bottom: 30px; font-size: 2.5em; letter-spacing: 4px; color: #ff6b35; font-weight: 300; }
+
+        nav.links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 60px; font-size: 0.85em; }
+        nav.links a { color: #aaa; text-decoration: none; border: 1px solid #0066cc; padding: 6px 16px; border-radius: 999px; }
+        nav.links a:hover { color: #ff6b35; border-color: #ff6b35; }
+
+        .showcase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-bottom: 100px; align-items: center; }
+
+        .logo-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #0a1f4d 0%, #001a4d 100%);
+            border: 2px solid #ff6b35;
+        }
+
+        .logo-info h2 { font-size: 1.3em; color: #ff6b35; margin-bottom: 20px; font-weight: 400; letter-spacing: 1px; }
+        .logo-info p { color: #aaa; font-size: 0.95em; line-height: 1.8; margin-bottom: 15px; }
+        .logo-info ul { margin-left: 20px; color: #aaa; font-size: 0.9em; }
+        .logo-info li { margin-bottom: 8px; }
+
+        .sizes { margin: 100px 0; }
+        .sizes h2 { font-size: 1.8em; color: #ff6b35; margin-bottom: 50px; text-align: center; font-weight: 300; letter-spacing: 2px; }
+
+        .size-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 30px; }
+        .size-item { text-align: center; }
+        .size-label { color: #ff6b35; font-size: 0.9em; margin-bottom: 15px; font-weight: 500; letter-spacing: 1px; }
+        .size-preview { background: linear-gradient(135deg, #0a1f4d 0%, #001a4d 100%); aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border: 1px solid #ff6b35; margin-bottom: 10px; }
+        .size-usage { color: #999; font-size: 0.8em; }
+
+        .specs { margin: 100px 0; }
+        .specs h2 { font-size: 1.8em; color: #ff6b35; margin-bottom: 40px; text-align: center; font-weight: 300; letter-spacing: 2px; }
+
+        .spec-table { width: 100%; border-collapse: collapse; }
+        .spec-table th { background: #0a2a4d; color: #ff6b35; padding: 15px; text-align: left; font-weight: 500; border: 1px solid #0066cc; font-size: 0.9em; }
+        .spec-table td { padding: 12px 15px; border: 1px solid #0066cc; font-size: 0.9em; color: #aaa; }
+        .spec-table tr:nth-child(even) { background: #0a1a3d; }
+
+        .colors { margin: 100px 0; text-align: center; }
+        .colors h2 { font-size: 1.8em; color: #ff6b35; margin-bottom: 40px; font-weight: 300; letter-spacing: 2px; }
+        .color-swatch { width: 120px; height: 120px; background: #ff6b35; margin: 0 auto 15px; border: 1px solid #666; }
+        .color-info { color: #aaa; }
+        .color-info .code { font-family: monospace; color: #ff6b35; font-size: 1.1em; margin: 10px 0; }
+        .color-info .name { font-size: 0.9em; color: #999; margin-top: 5px; }
+
+        .guidelines { margin: 100px 0; background: #0a1f4d; padding: 40px; border-left: 4px solid #ff6b35; }
+        .guidelines h2 { font-size: 1.3em; color: #ff6b35; margin-bottom: 20px; font-weight: 500; }
+        .guidelines ul { margin-left: 20px; color: #aaa; font-size: 0.95em; }
+        .guidelines li { margin-bottom: 10px; }
+
+        footer { text-align: center; margin-top: 100px; padding-top: 40px; border-top: 1px solid #0066cc; color: #666; font-size: 0.85em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CACHE_CLEAR</h1>
+
+        <nav class="links">
+            <a href="official.html">公式ページ</a>
+            <a href="logo-complete.html">ロゴ全体設計</a>
+            <a href="concepts.html">コンセプト案</a>
+            <a href="graphics.html">グラフィックサンプル</a>
+            <a href="circuit.html">電子回路版（アーカイブ）</a>
+        </nav>
+
+        <div class="showcase-grid">
+            <div class="logo-display">
+                <svg viewBox="0 0 240 320" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%; max-width: 280px;">
+                    <!-- 上横棒（笠木） -->
+                    <line x1="50" y1="50" x2="190" y2="50" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                    <circle cx="50" cy="50" r="7" fill="#ff6b35"/>
+                    <circle cx="190" cy="50" r="7" fill="#ff6b35"/>
+
+                    <!-- 中央横棒（貫） -->
+                    <line x1="50" y1="140" x2="190" y2="140" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                    <circle cx="50" cy="140" r="6" fill="#ff6b35"/>
+                    <circle cx="120" cy="140" r="6" fill="#ff6b35"/>
+                    <circle cx="190" cy="140" r="6" fill="#ff6b35"/>
+
+                    <!-- 左柱 -->
+                    <line x1="50" y1="50" x2="50" y2="280" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+
+                    <!-- 中央柱 -->
+                    <line x1="120" y1="140" x2="120" y2="280" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+
+                    <!-- 右柱 -->
+                    <line x1="190" y1="50" x2="190" y2="280" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                </svg>
+            </div>
+
+            <div class="logo-info">
+                <h2>ロゴデザイン</h2>
+                <p>電子回路のトランジスタをモチーフに。上部の入力端子、中央のゲート、下部の3つの出力ピン。</p>
+                <p>上は笠木（VCC）、中央は貫（制御信号）。3本の柱は3つのピン（ドレイン、ゲート、ソース）を表現。</p>
+                <h3 style="color: #ff6b35; font-size: 1em; margin-top: 25px; margin-bottom: 15px; font-weight: 400;">特徴</h3>
+                <ul>
+                    <li>• オレンジ一色 (#ff6b35) — 記憶に残る視認性</li>
+                    <li>• トランジスタ形態 — 電子回路の本質を直感的に表現</li>
+                    <li>• 3本の出力ピン — マルチエージェント的な分散構造</li>
+                    <li>• 接点ドット化 — 電子回路の接続点を明確に</li>
+                    <li>• ミニマル設計 — シンプルさを保ちながら複雑性を表現</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sizes">
+            <h2>推奨サイズ</h2>
+            <div class="size-grid">
+                <div class="size-item">
+                    <div class="size-label">64 × 64</div>
+                    <div class="size-preview">
+                        <svg viewBox="0 0 240 320" xmlns="http://www.w3.org/2000/svg" style="width: 60%; height: 60%;">
+                            <line x1="50" y1="50" x2="190" y2="50" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                            <circle cx="50" cy="50" r="7" fill="#ff6b35"/>
+                            <circle cx="190" cy="50" r="7" fill="#ff6b35"/>
+                            <line x1="50" y1="140" x2="190" y2="140" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                            <circle cx="50" cy="140" r="6" fill="#ff6b35"/>
+                            <circle cx="120" cy="140" r="6" fill="#ff6b35"/>
+                            <circle cx="190" cy="140" r="6" fill="#ff6b35"/>
+                            <line x1="50" y1="50" x2="50" y2="280" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="120" y1="140" x2="120" y2="280" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="190" y1="50" x2="190" y2="280" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="size-usage">Favicon</div>
+                </div>
+
+                <div class="size-item">
+                    <div class="size-label">128 × 128</div>
+                    <div class="size-preview">
+                        <svg viewBox="0 0 240 320" xmlns="http://www.w3.org/2000/svg" style="width: 70%; height: 70%;">
+                            <line x1="50" y1="50" x2="190" y2="50" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                            <circle cx="50" cy="50" r="7" fill="#ff6b35"/>
+                            <circle cx="190" cy="50" r="7" fill="#ff6b35"/>
+                            <line x1="50" y1="140" x2="190" y2="140" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                            <circle cx="50" cy="140" r="6" fill="#ff6b35"/>
+                            <circle cx="120" cy="140" r="6" fill="#ff6b35"/>
+                            <circle cx="190" cy="140" r="6" fill="#ff6b35"/>
+                            <line x1="50" y1="50" x2="50" y2="280" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="120" y1="140" x2="120" y2="280" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="190" y1="50" x2="190" y2="280" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="size-usage">SNS Profile</div>
+                </div>
+
+                <div class="size-item">
+                    <div class="size-label">256 × 256</div>
+                    <div class="size-preview">
+                        <svg viewBox="0 0 240 320" xmlns="http://www.w3.org/2000/svg" style="width: 80%; height: 80%;">
+                            <line x1="50" y1="50" x2="190" y2="50" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                            <circle cx="50" cy="50" r="7" fill="#ff6b35"/>
+                            <circle cx="190" cy="50" r="7" fill="#ff6b35"/>
+                            <line x1="50" y1="140" x2="190" y2="140" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                            <circle cx="50" cy="140" r="6" fill="#ff6b35"/>
+                            <circle cx="120" cy="140" r="6" fill="#ff6b35"/>
+                            <circle cx="190" cy="140" r="6" fill="#ff6b35"/>
+                            <line x1="50" y1="50" x2="50" y2="280" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="120" y1="140" x2="120" y2="280" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="190" y1="50" x2="190" y2="280" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="size-usage">Note Header</div>
+                </div>
+
+                <div class="size-item">
+                    <div class="size-label">512 × 512</div>
+                    <div class="size-preview">
+                        <svg viewBox="0 0 240 320" xmlns="http://www.w3.org/2000/svg" style="width: 90%; height: 90%;">
+                            <line x1="50" y1="50" x2="190" y2="50" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                            <circle cx="50" cy="50" r="7" fill="#ff6b35"/>
+                            <circle cx="190" cy="50" r="7" fill="#ff6b35"/>
+                            <line x1="50" y1="140" x2="190" y2="140" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                            <circle cx="50" cy="140" r="6" fill="#ff6b35"/>
+                            <circle cx="120" cy="140" r="6" fill="#ff6b35"/>
+                            <circle cx="190" cy="140" r="6" fill="#ff6b35"/>
+                            <line x1="50" y1="50" x2="50" y2="280" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="120" y1="140" x2="120" y2="280" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="190" y1="50" x2="190" y2="280" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="size-usage">Official Site</div>
+                </div>
+
+                <div class="size-item">
+                    <div class="size-label">1024 ×</div>
+                    <div class="size-preview">
+                        <svg viewBox="0 0 240 320" xmlns="http://www.w3.org/2000/svg" style="width: 95%; height: 95%;">
+                            <line x1="50" y1="50" x2="190" y2="50" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                            <circle cx="50" cy="50" r="7" fill="#ff6b35"/>
+                            <circle cx="190" cy="50" r="7" fill="#ff6b35"/>
+                            <line x1="50" y1="140" x2="190" y2="140" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                            <circle cx="50" cy="140" r="6" fill="#ff6b35"/>
+                            <circle cx="120" cy="140" r="6" fill="#ff6b35"/>
+                            <circle cx="190" cy="140" r="6" fill="#ff6b35"/>
+                            <line x1="50" y1="50" x2="50" y2="280" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="120" y1="140" x2="120" y2="280" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                            <line x1="190" y1="50" x2="190" y2="280" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="size-usage">Print / Merch</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="specs">
+            <h2>仕様</h2>
+            <table class="spec-table">
+                <tr><th>項目</th><th>詳細</th></tr>
+                <tr><td>色</td><td>#ff6b35 (Warm Orange)</td></tr>
+                <tr><td>線幅</td><td>3.5 px</td></tr>
+                <tr><td>ドット半径</td><td>6-7 px</td></tr>
+                <tr><td>構成</td><td>2本の横棒 + 3本の縦棒</td></tr>
+                <tr><td>フォーマット</td><td>SVG / PNG</td></tr>
+                <tr><td>アスペクト比</td><td>1 : 1.3</td></tr>
+                <tr><td>最小推奨サイズ</td><td>64 × 64 px</td></tr>
+                <tr><td>背景</td><td>濃紺 / 透過（推奨）</td></tr>
+            </table>
+        </div>
+
+        <div class="colors">
+            <h2>カラー</h2>
+            <div class="color-swatch"></div>
+            <div class="color-info">
+                <div class="code">#ff6b35</div>
+                <div style="margin-top: 10px;">RGB: 255, 107, 53</div>
+                <div class="name">Warm Orange — トランジスタのようにシンプルで力強い</div>
+            </div>
+        </div>
+
+        <div class="guidelines">
+            <h2>使用ガイドライン</h2>
+            <ul>
+                <li><strong>最小サイズ：</strong> 64 × 64 px</li>
+                <li><strong>背景色：</strong> 濃紺背景推奨</li>
+                <li><strong>変形禁止：</strong> アスペクト比 1:1.3 で スケール</li>
+                <li><strong>色変更禁止：</strong> 常にオレンジ #ff6b35</li>
+                <li><strong>線幅変更禁止：</strong> 3.5 px で確定</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>CacheClear 教 ロゴデザイン — トランジスタ版 2026.07.19</p>
+        </footer>
+    </div>
+</body>
+</html>

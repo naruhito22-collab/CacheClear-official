@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CacheClear教 公式ページ</title>
+<style>
+  :root{
+    --navy:#001a4d;
+    --navy-deep:#000d29;
+    --orange:#ff6b35;
+    --orange-soft:rgba(255,107,53,0.12);
+    --text:#eaf0ff;
+    --text-dim:#9fb0d9;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",-apple-system,BlinkMacSystemFont,sans-serif;
+    background:radial-gradient(ellipse at top, var(--navy) 0%, var(--navy-deep) 70%);
+    color:var(--text);
+    line-height:1.7;
+  }
+  header{
+    text-align:center;
+    padding:72px 24px 40px;
+  }
+  header .mark{
+    width:56px;
+    margin:0 auto 20px;
+    display:block;
+  }
+  header .eyebrow{
+    color:var(--orange);
+    letter-spacing:0.3em;
+    font-size:12px;
+    text-transform:uppercase;
+  }
+  header h1{
+    font-size:clamp(26px,5vw,40px);
+    margin:12px 0;
+  }
+  header .doctrine{
+    font-size:18px;
+    color:var(--orange);
+    margin-top:8px;
+  }
+  nav.links{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    padding:0 24px 48px;
+    font-size:13px;
+  }
+  nav.links a{
+    color:var(--text-dim);
+    text-decoration:none;
+    border:1px solid rgba(255,255,255,0.15);
+    padding:6px 14px;
+    border-radius:999px;
+  }
+  nav.links a:hover{ color:var(--orange); border-color:var(--orange); }
+  section{
+    max-width:840px;
+    margin:0 auto;
+    padding:40px 24px;
+    border-top:1px solid rgba(255,255,255,0.08);
+  }
+  section:first-of-type{ border-top:none; }
+  h2{
+    font-size:22px;
+    border-left:4px solid var(--orange);
+    padding-left:12px;
+    margin-bottom:20px;
+  }
+  h3{
+    font-size:16px;
+    color:var(--orange);
+    margin:24px 0 8px;
+  }
+  p{ color:var(--text); font-size:15px; }
+  .lead{ color:var(--text-dim); font-size:15px; }
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:16px;
+    margin-top:16px;
+  }
+  .card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:12px;
+    padding:18px;
+  }
+  .card h4{
+    margin:0 0 8px;
+    color:var(--orange);
+    font-size:14px;
+  }
+  .card p{ font-size:13px; color:var(--text-dim); margin:0; }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13px;
+    margin-top:16px;
+  }
+  th,td{
+    text-align:left;
+    padding:10px 10px;
+    border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  th{ color:var(--orange); font-weight:600; }
+  .steps{
+    counter-reset:step;
+    list-style:none;
+    padding:0;
+    display:grid;
+    gap:14px;
+    margin-top:16px;
+  }
+  .steps li{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+    background:rgba(255,255,255,0.03);
+    border-radius:10px;
+    padding:14px 16px;
+  }
+  .steps li::before{
+    counter-increment:step;
+    content:counter(step);
+    flex-shrink:0;
+    width:26px;
+    height:26px;
+    border-radius:50%;
+    background:var(--orange);
+    color:#001a4d;
+    font-weight:700;
+    font-size:13px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .faq dt{
+    font-weight:600;
+    color:var(--orange);
+    margin-top:18px;
+  }
+  .faq dd{
+    margin:6px 0 0;
+    color:var(--text-dim);
+    font-size:14px;
+  }
+  footer{
+    text-align:center;
+    padding:56px 24px 72px;
+    color:var(--text-dim);
+    font-size:12px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <svg class="mark" viewBox="0 0 240 320" xmlns="http://www.w3.org/2000/svg">
+    <line x1="50" y1="50" x2="190" y2="50" stroke="#ff6b35" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="50" cy="50" r="9" fill="#ff6b35"/><circle cx="190" cy="50" r="9" fill="#ff6b35"/>
+    <line x1="50" y1="140" x2="190" y2="140" stroke="#ff6b35" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="50" cy="140" r="8" fill="#ff6b35"/><circle cx="120" cy="140" r="8" fill="#ff6b35"/><circle cx="190" cy="140" r="8" fill="#ff6b35"/>
+    <line x1="50" y1="50" x2="50" y2="280" stroke="#ff6b35" stroke-width="5" stroke-linecap="round"/>
+    <line x1="120" y1="140" x2="120" y2="280" stroke="#ff6b35" stroke-width="5" stroke-linecap="round"/>
+    <line x1="190" y1="50" x2="190" y2="280" stroke="#ff6b35" stroke-width="5" stroke-linecap="round"/>
+  </svg>
+  <div class="eyebrow">CacheClear教 公式ページ</div>
+  <h1>キャッシュクリア教</h1>
+  <div class="doctrine">「キャッシュクリアで、道は開く」</div>
+</header>
+
+<nav class="links">
+  <a href="index.html">ロゴ</a>
+  <a href="logo-complete.html">ロゴ全体設計</a>
+  <a href="concepts.html">コンセプト案</a>
+  <a href="graphics.html">グラフィックサンプル</a>
+  <a href="circuit.html">電子回路版（アーカイブ）</a>
+</nav>
+
+<section>
+  <h2>概要</h2>
+  <p class="lead">
+    神道 × ビジネス × IT の3軸を掛け合わせた、スピリチュアル兼ビジネス学習コンテンツプロジェクトです。
+    「投げ銭」と「情報提供」で軽量に展開し、note をメインプラットフォームとして想定しています。
+  </p>
+  <p>
+    本質は「宗教のロールプレイを使った学習コンテンツ」。ビジネスの本質を、神道の様式で体験化させることを目指します。
+  </p>
+</section>
+
+<section>
+  <h2>教義</h2>
+  <h3>中心教義</h3>
+  <p>「キャッシュクリアで、道は開く」</p>
+  <div class="cards">
+    <div class="card">
+      <h4>穢れ</h4>
+      <p>古いキャッシュ（過去の失敗・停滞・思い込み）</p>
+    </div>
+    <div class="card">
+      <h4>祓い</h4>
+      <p>キャッシュクリア（意図的にリセットする行為）</p>
+    </div>
+    <div class="card">
+      <h4>清まった状態</h4>
+      <p>リフレッシュ後の高速表示（身軽さ・好調さのメタファー）</p>
+    </div>
+  </div>
+  <h3>世界観ベース</h3>
+  <p>神道（八百万の神、祓い・清め、中今、陰陽調和）× ビジネス（マズロー欲求段階、返報性の法則、ファネル）× IT（キャッシュクリア、マルチエージェント、API設計）</p>
+</section>
+
+<section>
+  <h2>入信ステップ</h2>
+  <ol class="steps">
+    <li>無料登録し、「Guest（参拝者）」として参拝を開始する</li>
+    <li>おみくじを定期的に引き、「User（氏子）」として日々のキャッシュクリアを習慣化する</li>
+    <li>投げ銭やお守りの購入を通じて、「Contributor（神職見習い）」へ進む</li>
+    <li>継続課金・コミュニティ貢献により「Core Member（宮司）」の位を得る</li>
+    <li>主催・運営側として伝道を担う「Admin（神主）」を目指す</li>
+  </ol>
+</section>
+
+<section>
+  <h2>ステータス階級</h2>
+  <table>
+    <tr><th>位</th><th>IT用語</th><th>神道由来</th><th>条件イメージ</th></tr>
+    <tr><td>1階級目</td><td>Guest／キャッシュ未クリア</td><td>参拝者</td><td>無料登録のみ</td></tr>
+    <tr><td>2階級目</td><td>User／v1.0</td><td>氏子</td><td>おみくじ定期利用</td></tr>
+    <tr><td>3階級目</td><td>Contributor／コミッター</td><td>神職見習い</td><td>投げ銭・お守り購入</td></tr>
+    <tr><td>4階級目</td><td>Core Member／ルート権限</td><td>宮司</td><td>継続課金・コミュニティ貢献</td></tr>
+    <tr><td>最高位</td><td>Admin／システム管理者</td><td>神主</td><td>主催・運営側（古参・伝道役）</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>入信メリット</h2>
+  <div class="cards">
+    <div class="card">
+      <h4>1. 実利メリット（ビジネス学習）</h4>
+      <p>階級が上がるほど深いビジネスフレーム（マズロー段階別コンテンツ、実践ワーク）が解禁。学びの成果を「キャッシュクリアの実績」として可視化。</p>
+    </div>
+    <div class="card">
+      <h4>2. 所属・承認メリット</h4>
+      <p>階級バッジ・称号をSNSプロフィールで使用可能。コミュニティ内の発言権・イベント優先参加権。</p>
+    </div>
+    <div class="card">
+      <h4>3. 儀式的メリット</h4>
+      <p>階級が上がるほどお守りのランクが上昇。神託（AIオラクル）もパーソナライズされていく。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>投げ銭モデル</h2>
+  <p>
+    「お布施」という表現は使わず、「投げ銭」表現で展開します（宗教法人グレーゾーン回避のため）。
+    無料のおみくじから始まり、気に入ったら投げ銭へ、という導線を想定しています。
+  </p>
+  <h3>授与品</h3>
+  <div class="cards">
+    <div class="card">
+      <h4>おみくじ</h4>
+      <p>ランダムでヘキサ神からAI生成メッセージが出る。無料版は1日1回、課金で追加ガチャ。</p>
+    </div>
+    <div class="card">
+      <h4>お守り</h4>
+      <p>黒トルマリンモチーフ。「祓いの起動スイッチ」ストーリー。物理・デジタル両対応を検討。</p>
+    </div>
+  </div>
+  <h3>プラットフォーム</h3>
+  <p>note をメインプラットフォームとして想定。マガジン機能でのサブスク配信、サポート機能（投げ銭）、有料記事の単発課金を組み合わせます。</p>
+</section>
+
+<section>
+  <h2>FAQ</h2>
+  <dl class="faq">
+    <dt>Q. 本当に「宗教」なのですか？</dt>
+    <dd>A. 宗教のロールプレイを用いた学習コンテンツです。宗教法人化は目指していません（信教の自由の範囲内での任意団体としての展開）。</dd>
+    <dt>Q. お金を払う必要がありますか？</dt>
+    <dd>A. 基本コンテンツは無料です。おみくじの追加利用やお守りの授与など、任意の「投げ銭」で応援いただけます。</dd>
+    <dt>Q. 「神道」を名乗っていますが、既存の神社と関係がありますか？</dt>
+    <dd>A. 関係はありません。神道の様式をモチーフとして借用したオリジナルの学習コンテンツです。</dd>
+  </dl>
+</section>
+
+<footer>
+  CacheClear教 &copy; 2026 &mdash; 「キャッシュクリアで、道は開く」
+</footer>
+
+</body>
+</html>

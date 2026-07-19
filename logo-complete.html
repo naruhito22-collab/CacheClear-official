@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CacheClear教 ロゴ全体設計</title>
+<style>
+  :root{ --navy:#001a4d; --navy-deep:#000d29; --orange:#ff6b35; --text:#eaf0ff; --text-dim:#9fb0d9; }
+  *{box-sizing:border-box;}
+  body{ margin:0; font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif; background:radial-gradient(ellipse at top, var(--navy) 0%, var(--navy-deep) 70%); color:var(--text); }
+  header{ text-align:center; padding:56px 24px 24px; }
+  .eyebrow{ color:var(--orange); letter-spacing:0.3em; font-size:12px; text-transform:uppercase; }
+  h1{ font-size:clamp(24px,4.5vw,36px); margin:12px 0 32px; }
+  nav.links{ display:flex; justify-content:center; gap:20px; flex-wrap:wrap; padding:0 24px 40px; font-size:13px; }
+  nav.links a{ color:var(--text-dim); text-decoration:none; border:1px solid rgba(255,255,255,0.15); padding:6px 14px; border-radius:999px; }
+  nav.links a:hover{ color:var(--orange); border-color:var(--orange); }
+  section{ max-width:900px; margin:0 auto; padding:24px 24px 48px; }
+  h2{ font-size:20px; border-left:4px solid var(--orange); padding-left:12px; margin-bottom:20px; }
+  .swatches{ display:flex; gap:16px; flex-wrap:wrap; }
+  .swatch{ width:140px; }
+  .swatch .chip{ height:70px; border-radius:10px; border:1px solid rgba(255,255,255,0.15); }
+  .swatch p{ font-size:12px; color:var(--text-dim); margin:8px 0 0; }
+  .bg-demo{ display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px; margin-top:16px;}
+  .bg-demo .box{ border-radius:12px; padding:24px; display:flex; align-items:center; justify-content:center; }
+  .bg-demo .box svg{ width:70px; height:auto; }
+  .bg-navy{ background:#001a4d; }
+  .bg-transparent{ background:repeating-conic-gradient(#0a1730 0% 25%, #14224a 0% 50%) 0 0 / 20px 20px; }
+  .bg-white{ background:#f4f6fb; }
+  table{ width:100%; border-collapse:collapse; font-size:13px; margin-top:12px;}
+  th,td{ text-align:left; padding:10px; border-bottom:1px solid rgba(255,255,255,0.12); }
+  th{ color:var(--orange); }
+  footer{ text-align:center; padding:48px 24px 64px; color:var(--text-dim); font-size:12px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">Logo Design System</div>
+  <h1>ロゴ全体設計</h1>
+</header>
+
+<nav class="links">
+  <a href="index.html">確定版ロゴ</a>
+  <a href="official.html">公式ページ</a>
+  <a href="concepts.html">コンセプト案</a>
+  <a href="graphics.html">グラフィックサンプル</a>
+  <a href="circuit.html">電子回路版（アーカイブ）</a>
+</nav>
+
+<section>
+  <h2>カラースペック</h2>
+  <div class="swatches">
+    <div class="swatch"><div class="chip" style="background:#ff6b35;"></div><p>#ff6b35<br>Warm Orange（メイン）</p></div>
+    <div class="swatch"><div class="chip" style="background:#001a4d;"></div><p>#001a4d<br>Navy（推奨背景）</p></div>
+    <div class="swatch"><div class="chip" style="background:#000d29;"></div><p>#000d29<br>Navy Deep</p></div>
+    <div class="swatch"><div class="chip" style="background:#ffffff; border-color:#ccc;"></div><p>#ffffff<br>モノクロ使用時</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>背景での見え方</h2>
+  <div class="bg-demo">
+    <div class="box bg-navy">
+      <svg viewBox="0 0 240 320" xmlns="http://www.w3.org/2000/svg">
+        <line x1="50" y1="50" x2="190" y2="50" stroke="#ff6b35" stroke-width="6" stroke-linecap="round"/>
+        <circle cx="50" cy="50" r="11" fill="#ff6b35"/><circle cx="190" cy="50" r="11" fill="#ff6b35"/>
+        <line x1="50" y1="140" x2="190" y2="140" stroke="#ff6b35" stroke-width="6" stroke-linecap="round"/>
+        <circle cx="50" cy="140" r="9" fill="#ff6b35"/><circle cx="120" cy="140" r="9" fill="#ff6b35"/><circle cx="190" cy="140" r="9" fill="#ff6b35"/>
+        <line x1="50" y1="50" x2="50" y2="280" stroke="#ff6b35" stroke-width="6" stroke-linecap="round"/>
+        <line x1="120" y1="140" x2="120" y2="280" stroke="#ff6b35" stroke-width="6" stroke-linecap="round"/>
+        <line x1="190" y1="50" x2="190" y2="280" stroke="#ff6b35" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="box bg-transparent">
+      <svg viewBox="0 0 240 320" xmlns="http://www.w3.org/2000/svg">
+        <line x1="50" y1="50" x2="190" y2="50" stroke="#ff6b35" stroke-width="6" stroke-linecap="round"/>
+        <circle cx="50" cy="50" r="11" fill="#ff6b35"/><circle cx="190" cy="50" r="11" fill="#ff6b35"/>
+        <line x1="50" y1="140" x2="190" y2="140" stroke="#ff6b35" stroke-width="6" stroke-linecap="round"/>
+        <circle cx="50" cy="140" r="9" fill="#ff6b35"/><circle cx="120" cy="140" r="9" fill="#ff6b35"/><circle cx="190" cy="140" r="9" fill="#ff6b35"/>
+        <line x1="50" y1="50" x2="50" y2="280" stroke="#ff6b35" stroke-width="6" stroke-linecap="round"/>
+        <line x1="120" y1="140" x2="120" y2="280" stroke="#ff6b35" stroke-width="6" stroke-linecap="round"/>
+        <line x1="190" y1="50" x2="190" y2="280" stroke="#ff6b35" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="box bg-white">
+      <svg viewBox="0 0 240 320" xmlns="http://www.w3.org/2000/svg">
+        <line x1="50" y1="50" x2="190" y2="50" stroke="#ff6b35" stroke-width="6" stroke-linecap="round"/>
+        <circle cx="50" cy="50" r="11" fill="#ff6b35"/><circle cx="190" cy="50" r="11" fill="#ff6b35"/>
+        <line x1="50" y1="140" x2="190" y2="140" stroke="#ff6b35" stroke-width="6" stroke-linecap="round"/>
+        <circle cx="50" cy="140" r="9" fill="#ff6b35"/><circle cx="120" cy="140" r="9" fill="#ff6b35"/><circle cx="190" cy="140" r="9" fill="#ff6b35"/>
+        <line x1="50" y1="50" x2="50" y2="280" stroke="#ff6b35" stroke-width="6" stroke-linecap="round"/>
+        <line x1="120" y1="140" x2="120" y2="280" stroke="#ff6b35" stroke-width="6" stroke-linecap="round"/>
+        <line x1="190" y1="50" x2="190" y2="280" stroke="#ff6b35" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>推奨サイズ・用途</h2>
+  <table>
+    <tr><th>サイズ</th><th>用途</th></tr>
+    <tr><td>64×64px</td><td>ファビコン</td></tr>
+    <tr><td>128×128px</td><td>SNSプロフィール</td></tr>
+    <tr><td>256×256px</td><td>Noteメインヘッダー</td></tr>
+    <tr><td>300px+</td><td>大型グッズ、公式サイト</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>ビジュアル特性</h2>
+  <table>
+    <tr><td>✓</td><td>電子回路として実質的に成立</td></tr>
+    <tr><td>✓</td><td>スケーラブル（小〜大まで対応）</td></tr>
+    <tr><td>✓</td><td>モノクロでも映える</td></tr>
+    <tr><td>✓</td><td>BIOS画面（ブルー系）の美学に調和</td></tr>
+  </table>
+</section>
+
+<footer>CacheClear教 &copy; 2026</footer>
+</body>
+</html>
